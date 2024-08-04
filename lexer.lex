@@ -91,7 +91,6 @@ MOD = "%"
 EXP = "^" 
 LPAREN = "(" 
 RPAREN = ")"
-
 WHITE = (" "|\t|\n)
 
 %%
@@ -107,10 +106,7 @@ WHITE = (" "|\t|\n)
 <YYINITIAL>{RPAREN}   { return new Token(Token.RPAREN);   }
 <YYINITIAL>{NUMBER} { return new Token(Token.NUMBER, yytext()); }
 <YYINITIAL>{WHITE}  { /* NO HACER NADA */             }
-signo   = [+-]
-digitos = [0-9]
-punto = .
-exponente = [eE]
+
 
 <YYINITIAL>.        { return new Token(Token.ERROR);
                       /* todo lo demas es ERROR */ }
